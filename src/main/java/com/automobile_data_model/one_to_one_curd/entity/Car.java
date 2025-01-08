@@ -28,15 +28,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Car {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String registrationNumber; // Unique identifier for the car (e.g., license plate)
-    private String model; // Model name of the car
-    private String manufacturer; // Manufacturer of the car
-    private int year; // Manufacturing year of the car
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+        private String registrationNumber; // Unique identifier for the car (e.g., license plate)
+        private String model; // Model name of the car
+        private String manufacturer; // Manufacturer of the car
+        private int year; // Manufacturing year of the car
 
-    @OneToOne(cascade = CascadeType.ALL) // Establishing one-to-one relationship
-    @JoinColumn(name = "engine_id", referencedColumnName = "id")
-    private Engine engine; // Associated engine for the car
-}
+        @OneToOne(cascade = CascadeType.ALL) // Establishing one-to-one relationship
+        @JoinColumn(name = "engine_id", referencedColumnName = "id")
+        private Engine engine; // Associated engine for the car
+
+        public Car(String registrationNumber, String model, String manufacturer, int year, Engine engine) {
+            this.registrationNumber = registrationNumber;
+            this.model = model;
+            this.manufacturer = manufacturer;
+            this.year = year;
+            this.engine = engine;
+        }
+    }

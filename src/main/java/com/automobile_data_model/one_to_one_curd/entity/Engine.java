@@ -27,12 +27,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Engine {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String engineNumber; // Unique identifier for the engine
-    private String type; // e.g., Petrol, Diesel, Electric
-    private int horsepower; // Horsepower of the engine
-    private double displacement; // Engine displacement in liters (e.g., 2.0L)
-    private String manufacturer; // Manufacturer of the engine
-}
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private long id;
+            private String engineNumber; // Unique identifier for the engine
+            private String type; // e.g., Petrol, Diesel, Electric
+            private int horsepower; // Horsepower of the engine
+            private double displacement; // Engine displacement in liters (e.g., 2.0L)
+            private String manufacturer; // Manufacturer of the engine
+
+            public Engine(String engineNumber, String type, int horsepower, double displacement, String manufacturer) {
+                this.engineNumber = engineNumber;
+                this.type = type;
+                this.horsepower = horsepower;
+                this.displacement = displacement;
+                this.manufacturer = manufacturer;
+            }
+        }
